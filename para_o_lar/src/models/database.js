@@ -146,7 +146,7 @@ const dataBase = {
             "estado": "sp"
         }
     ],
-    comentarios: [],
+
     novoIdEstabelecimento: function() {
         let id = 0
         dataBase.estabelecimentos.forEach(item => {
@@ -154,7 +154,7 @@ const dataBase = {
                 id = item.id
             }
         });
-
+    
         id = id + 1 // getMax +1
     
         return id
@@ -166,11 +166,14 @@ const dataBase = {
                 id = item.id
             }
         });
-
+    
         id = id + 1 // getMax +1
     
         return id        
     },
- 
+}
 
 module.exports = dataBase
+   
+    
+
