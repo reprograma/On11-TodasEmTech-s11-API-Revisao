@@ -1,0 +1,151 @@
+[
+    {
+        "nome": "BEYOUNG",
+        "id" : 1,
+        "vegana" : "100% vegana",
+        "crueltyFree": "não"
+
+
+    },
+
+    {
+        "nome": "Eudora",
+        "id" : 2,
+        "vegana" : "não",
+        "crueltyFree": "sim"
+
+
+
+
+    },
+
+
+    {
+        "nome": "Boni natural",
+        "id" : 3,
+        "vegana" : "100% vegana",
+        "crueltyFree": "sim"
+
+
+
+
+    },
+
+    {
+        "nome": "Lola Cosmetics",
+        "id" : 4,
+        "vegana" : "100% vegana",
+        "crueltyFree": "sim"
+
+
+
+
+    },
+   
+    {
+        "nome": "Skala",
+        "id" : 5,
+        "vegana" : "100% vegana",
+        "crueltyFree": "sim"
+
+
+
+
+    },
+    {
+        "nome": "Avora",
+        "id" : 6,
+        "vegana" : "100% vegana",
+        "crueltyFree": "sim"
+
+
+
+
+    },
+    {
+        "nome": "Salon line",
+        "id" : 7,
+        "vegana" : "opções veganas",
+        "crueltyFree": "sim"
+
+
+
+
+    },
+    {
+        "nome": "Salon line",
+        "id" : 8,
+        "vegana" : "opções veganas",
+        "crueltyFree": "sim"
+
+
+
+
+    },
+    {
+        "nome": "Avon",
+        "id" : 9,
+        "vegana" : "opções veganas",
+        "crueltyFree": "não"
+
+
+
+
+    },
+    {
+        "nome": "Natura",
+        "id" : 10,
+        "vegana" : "opções veganas",
+        "crueltyFree": "não"
+
+
+
+
+    },
+    {
+        "nome": "vizzela",
+        "id" : 11,
+        "vegana" : "100% veganas",
+        "crueltyFree": "não"
+
+
+
+
+    },
+    {
+        "nome": "zen life",
+        "id" : 12,
+        "vegana" : "100% veganas",
+        "crueltyFree": "não"
+
+
+
+
+    },
+    {
+        "nome": "sallve",
+        "id" : 13,
+        "vegana" : "100% veganas",
+        "crueltyFree": "sim"
+
+
+
+
+    },
+    {
+        "nome": "Adversa",
+        "id" : 14,
+        "vegana" : "100% veganas",
+        "crueltyFree": "sim"
+
+
+
+
+    }
+
+
+
+
+
+
+]
