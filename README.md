@@ -1,112 +1,181 @@
-# On11-TodasEmTech-s11-API-Revisao
-Turma Online 11 - Todas em Tech | Back-end | 2021 | Revisão + Exercícios = GET, POST, PUT, DELETE
+# API cruelty free BR
 
-# Hello!
+## Autoras:  Agnes Galvão e Beatriz Ramerindo
 
-Como você está lidando com esse processo de transição? 
+## Versão: 1.0.0
 
-Aprender a aprender pode ser muito doloroso, mas eu te garanto uma coisa: é libertador! Chegamos na décima semana! E vocês estão voandooo!  🚀
+# [GET] "/"
 
-* Vamos começar com um momento só nosso ❤️
-* Depois vamos revisar alguns dos conceitos estudados nas últimas semanas
-* E de quebra teremos bastante treino!
+apresentação da API
 
----
+# 
 
-## Revisão
+# [GET] "/marcas"
 
-Essa revisão vai te ajudar a relembrar conceitos e modelos para estabelecer o seu mapa mental de aprendizado! 😃
+retorna todas as marcas
 
-### Node.js
+# [GET] " /marcas/veganas "
 
-É um interpretador Javascript que não depende do navegador. 
+retorna todas as marcas veganas
 
-Ele é formado pelo V8, motor interpretador de Javascript criado pelo Google, e pela libuv, uma biblioteca que deu características de linguagem back-end para o node.
+# [GET] " /marcas/opcoesVeganas "
 
-Node.js revolucionou a forma de programar em Javascript, pois a linguagem evoluiu de uma forma de dar vida aos elementos no navegador para uma linguagem capaz de rodar sistemas em computadores/servidores.
+retorna todas as marcas veganas que possuem alguns produtos veganos
 
-### HTTP
+# [GET] " /marcas/crueltyFree "
 
-É o protocolo de transferência de hipertexto. 
+retorna todas as marcas que maltratam os bichinhos
 
-O principal protocolo de comunicação entre computadores utilzados na internet.
+# [GET] " /marcas/crueltyFreeAndVegan "
 
-Ele cria as regras para enviar e receber informações na internet.
+retorna todas as marcas que maltratam os bichinhos e sao veganas
 
-Ele é responsável pelo o que acontece por debaixo dos panos quando usamos a internet.
+# [GET] " /marcas/{id} "
 
-#### Verbos ou métodos
+## Requirido:  Path Params
 
-Para além de GET e POST, temos também no nosso leque de principais métodos o PUT, DELETE e PATCH.
+retorna uma marca com id escolhido
 
-É simples de entender:
+ex: /marcas/1
 
-* GET: para consultas
-* POST: para criação de informações
-* DELETE: para remoção de informações
-* PUT: Alteração de informações
-* PATCH: para atualização de informações
+# [GET] " /marcas/nome "
 
+## Requirido:  Query Parametros
 
-### API
+### [KEY]nome    [VALUE]string
 
-Interface entre aplicativos e programação.
+retorna  uma marca pelo nome
 
-Se uma interface de um sistema é criado para o usuário final, a API é desenvolvida para que um sistema possa usar as funcionalidades de outro sistema.
+ex: /marcas/nome?nome=exemplo
 
-Interface ideal para que um sistema se comunique com outro sistema.
+# [POST] " /marcas/add "
 
-### REST e RESTful
+## Requirido:  Body Parse
 
-Rest é uma abstração(forma de usar as regras) do protocolo HTTP para simplificar a construção de um web service, ou seja quem cria uma API com as restrições e regras do modelo Rest está criando na verdade API Restful.
+### body {
 
-O grande objetivo desse modelo é fazer com que os recursos estejam disponíveis através de URLs.
+"nome": nomeMarca, 
 
-#### Algumas das regras: 
+"id":  gerado automaticamente, 
 
-* Adotar convenção de URLs
-* Basear em recursos
-* Usar os verbos HTTP para indicar ações
-* Ser stateless, ou seja, toda requisição é autossuficiente/independente
+"vegana": Vegana, 
 
-### MVC
+"crueltyFree": crueltyfree
 
+}
 
-#### Server.js
-> Aqui no server que você vai chamar o app para escutar a porta e disponibilizar toda a aplicação a partir do localhost
+retorna  a marca criada
 
-#### App.js
-> Aqui no app que você vai usar a rota raiz 
+# [DELETE] " /marcas/{id} "
 
-#### 📂Routes
->  Aqui nas rotas você vai usar os verbos para  executar os controllers 
+## Requirido:  Path Params
 
-#### 📂Controller
-> Aqui no controller você vai acessar os dados do seu model a partir das requisições e enviar respostas
+deleta uma marca com id escolhido
 
-#### 📂Model
-> Por enquanto estamos apenas guardando nosso JSON aqui, mas no futuro será o lugar onde você irá modelar os esquemas de dados para o banco. Não fique ansiosa! Acredite no processo, ele funciona!
+ex: /marcas/1
 
+retorna a marca deletada
 
+# [PUT] " /marcas/title"
 
+## Requirido:  Body Parse  e Query Parametros
 
----
+## *Um json com ao menos  1 *key* e um *value* válido.
 
-## Tarefinhas
+Exemplo
 
-Vamos ajudar o nosso comércio local criando uma rede social para os estabelecimentos, vamos separa-los por categorias e bairros:
-**Proposta:**
+### [KEY]nome  [VALUE]string
 
-![assets/proposta.jpg](assets/proposta.jpg)
+### body {
 
----
-**Desafio:**
-#### Calma! É só mais uma oportunidade de continuar aprendendo e lembre-se a Edi esta aqui para ajudar!
+"nome": nomeMarca, 
 
-Já estamos treinando com nossos exemplos em aula, já já será a vez de você brilhar no mundo e chamar as migas tudo no grupo pra estudar juntas! haha
+"id":  nao pode ser alterado, 
 
-## Edlaine (Só a minha mãe me chama assim, para vcs eu sou a EDI)
-- [instagram](https://www.instagram.com/pontesedlaine)
-- [linkedin](https://www.linkedin.com/in/edlaine-pontes/)
-- [github](https://github.com/edlaine-pontes)
-- email: edlaine@marti.com.br
+"vegana": Vegana, 
+
+"crueltyFree": crueltyfree
+
+}
+
+ex: /marcas/title?nome=exemplo
+
+retorna  a marca atualizada
+
+# [PUT] " /marcas/{id}"
+
+## Requirido:  Body Parse  e Path Parametros
+
+## *Um json com ao menos  1 *key* e um *value* válido.
+
+Exemplo
+
+### [KEY]nome  [VALUE]string
+
+### body {
+
+"nome": nomeMarca, 
+
+"id":  nao pode ser alterado, 
+
+"vegana": Vegana, 
+
+"crueltyFree": crueltyfree
+
+}
+
+ex: /marcas/1
+
+retorna  a marca atualizada
+
+# [PATCH] " /marcas/title"
+
+## Requirido:  Body Parse  e Query Parametros
+
+## *Um json com ao menos  1 *key* e um *value* válido.
+
+Exemplo
+
+### [KEY]nome  [VALUE]string
+
+### body {
+
+"nome": nomeMarca, 
+
+"id":  nao pode ser alterado, 
+
+"vegana": Vegana, 
+
+"crueltyFree": crueltyfree
+
+}
+
+ex: /marcas/title?nome=exemplo
+
+retorna  a marca atualizada
+
+# [PATCH] " /marcas/{id}"
+
+## Requirido:  Body Parse  e Path Parametros
+
+## *Um json com ao menos  1 *key* e um *value* válido.
+
+Exemplo
+
+### [KEY]nome  [VALUE]string
+
+### body {
+
+"nome": nomeMarca, 
+
+"id":  nao pode ser alterado, 
+
+"vegana": Vegana, 
+
+"crueltyFree": crueltyfree
+
+}
+
+ex: /marcas/1
+
+retorna  a marca atualizada
