@@ -1,0 +1,67 @@
+[
+    {
+        "likes": 2,
+        "id": 1,
+        "nome": "FunPets",
+        "site": "http://www.funpets.com.br",
+        "categoria": "PetShop",
+        "logradouro": "Joao Fernandes Vieira",
+        "numero": 356,
+        "bairro": "Boa Vista",
+        "cidade": "Recife",
+        "estado": "pe",
+        "telefone": "(81)3877-6085"
+    },
+    {
+        "likes": 3,
+        "id": 2,
+        "nome": "Nortvet Clinica Veterinaria",
+        "site": "http://www.nortvet.com",
+        "categoria": "Clinica Veterinaria",
+        "logradouro": "Av. Norte Miguel Arraes de Alencar",
+        "numero": 637,
+        "bairro": "Santo Amaro",
+        "cidade": "Recife",
+        "estado": "pe",
+        "telefone": "(81)3223-6493"
+    },
+    {
+        "likes": 4,
+        "id": 3,
+        "nome": "Petz",
+        "site": "http://www.petz.com.br",
+        "categoria": "PetShop",
+        "logradouro": "Av. Republica de Libano",
+        "numero": 251,
+        "bairro": "Pina",
+        "cidade": "Recife",
+        "estado": "pe",
+        "telefone": "(81)3033-7590"
+    },
+    {
+        "likes": 1,
+        "id": 4,
+        "nome": "Pet Baby Hospedagem",
+        "site": "http://www.pet-baby-hospedagem.negocio.site",
+        "categoria": "hotel",
+        "logradouro": "Rua Santa Leonor",
+        "numero": 139,
+        "bairro": "Boa Viagem",
+        "cidade": "Recife",
+        "estado": "pe",
+        "telefone": "(81)98822-3445"
+    },
+    {
+        "likes": 3,
+        "id": 5,
+        "nome": "VetMais Hopital Veterimario 24h",
+        "site": "http://www.hospitalvetmais.com.br",
+        "categoria": "hospital veterinario",
+        "logradouro": "Av Gov. Agamenom Magalhoes",
+        "numero": 141,
+        "bairro": "Paissandu",
+        "cidade": "Recife",
+        "estado": "pe",
+        "telefone": "(81)3132-2222"
+    }
+]
