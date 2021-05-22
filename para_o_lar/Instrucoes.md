@@ -39,4 +39,6 @@ Lembre de usar o postman para testar se a solução tá certinha a partir das ro
 ## E lembrem...
 Usem o plantão de dúvidas, assistam a gravação da aula. E se ainda assim não conseguir, solicite ajuda da coleguinha. Sabemos que está ficando mais puxado, vamos nos ajudar mutuamente!
 
+// Segue a prévia. Como estou num local com problemas de conexão, subi no github conforme procedimento da tarefa da semana, porém finalizarei tal prévia.
+
 

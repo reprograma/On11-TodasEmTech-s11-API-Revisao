@@ -1,0 +1,38 @@
+[
+    {
+        "likes": 8,
+        "id": 1,
+        "nome": "Santa Gula",
+        "site": "http://www.Santagula.com.br",
+        "categoria": "restaurante",
+        "logradouro": "Rua Cerqueira",
+        "numero": 2,
+        "bairro": "Lindoia",
+        "cidade": "Atibaia",
+        "estado": "sp"
+    },
+    {
+        "likes": 0,
+        "id": 2,
+        "nome": "Reserva Japi",
+        "site": "http://www.revervajapi.com.br",
+        "categoria": "hotel",
+        "logradouro": "Rua Amarela",
+        "numero": 105,
+        "bairro": "Juquia",
+        "cidade": "Atibaia",
+        "estado": "sp"
+    },
+    {
+        "likes": 0,
+        "id": 3,
+        "nome": "Delicias da Edi",
+        "site": "http://www.revervajapi.com.br",
+        "categoria": "hotel",
+        "logradouro": "Rua Juria",
+        "numero": 22,
+        "bairro": "Centro",
+        "cidade": "Campinas",
+        "estado": "sp"
+    }
+]
