@@ -1,0 +1,29 @@
+[
+    {
+        "id":"1",
+        "dataCriacao": "22/05/2021",
+        "localNome": "UBS Guanabara",
+        "endereco": "rua Mané Garrincha, S/n",
+        "bairro": "Guanabara",
+        "telefone": "(94)3346-7007",
+        "celular": "(94)99225-3654"  
+    },
+    {
+        "id":"2",
+        "dataCriacao": "22/05/2021",
+        "localNome": "UBS Altamira",
+        "endereco": "rua Pedro Alvares, S/N ",
+        "bairro": "Altamira",
+        "telefone": "(94)3346-8550",
+        "celular": "(94)99123-2752"   
+    },
+    {
+        "id":"3",
+        "dataCriacao": "22/05/2021",
+        "localNome": "UBS Novo Brasil",
+        "endereco": "rua da Mangueira, nº 240 - B ",
+        "bairro": "Novo Brasil",
+        "telefone": "(94)3356-2386",
+        "celular": "(94)99186-7527"
+    }
+]

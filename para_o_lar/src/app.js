@@ -1,14 +1,14 @@
-const local = require("./model/models")
-const express = require ("express")
+const express = require("express")
 const cors = require("cors")
+const locais = require("./route/routesLocais")
+const index = require("./route/index")
 
 const app = express()
 
-app.use("/locais", locais)
-app.use(express.json())
 app.use(cors())
+app.use(express.json())
 
+app.use("/", index)
+app.use("/locais", locais)
 
 module.exports = app 
-
-
