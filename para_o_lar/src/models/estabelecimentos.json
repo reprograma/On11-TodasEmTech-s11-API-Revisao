@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "nome": "Loja Phink It",
+        "site": "https://www.lojaphinkit.com.br/",
+        "categoria": "marca Slow Fashion",
+        "cidade": "Recife",
+        "estado": "PE"
+    },
+    {
+        "id": 2,
+        "nome": "Use Amanhecer",
+        "site": "https://www.useamanhecerstore.com.br/",
+        "categoria": "marca Slow Fashion",
+        "cidade": "Natal",
+        "estado": "RN" 
+    },
+    {
+        "id": 3,
+        "nome": "Loja Cigana",
+        "site": "https://www.lojaciganasite.com.br/",
+        "categoria": "marca Slow Fashion",
+        "cidade": "Fotaleza",
+        "estado": "CE"
+    },
+    {
+        "id": 4,
+        "nome": "Singular Store",
+        "site": "https://www.singularstore.com/",
+        "categoria": "marca Slow Fashion",
+        "cidade": "Salvador",
+        "estado": "BA"
+    }
+
+]
