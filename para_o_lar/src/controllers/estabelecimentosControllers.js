@@ -1,13 +1,67 @@
-const models = require('../models/database') // basta voce trocar para json
+const models = require('../models/database')
+const fs = require("fs")
 
+//METODO POST
+const create = (req, res) => {
+    const {
+        nome, site = 'sem site', categoria, logradouro, numero, bairro, cidade, estado } = req.body
+
+    if (nome === undefined) {
+        return res.status(400).send({
+            "mensagem": "O campo nome não foi enviado"
+        })
+    }
+
+    if (typeof nome != "string" || nome.length < 5 || nome.length > 50) {
+        return res.status(400).send({
+            "mensagem": "O nome deve ser uma string com tamanho entre 5 e 50 caracteres"
+        })
+    }
+
+    if (categoria === undefined) {
+        return res.status(400).send({
+            "mensagem": "O campo categoria não foi enviado"
+        })
+    }
+
+    if (!categoriasPermitidas.includes(categoria)) {
+        return res.status(400).send({
+            "mensagem": "Ainda não aceitamos a sua categoria de estabelecimento como ponto de entrega de doaçõe. Atualmente estamos trabalhando com: restaurante, hotel, supermercado, farmacia, escola"
+        })
+    }
+
+    const estabelecimento = {
+        nome, site, categoria, logradouro, numero, bairro, cidade, estado
+    }
+    estabelecimento.id = models.novoIdEstabelecimento()
+    models.estabelecimentos.push(estabelecimento)
+
+    fs.writeFile("./src/models/database.js", JSON.stringify(models), 'utf8', function (err) {
+        if (err) {
+            return response.status(424).send({ message: err })
+        }
+
+    })
+    return res.status(201).send(estabelecimento)
+}
+
+const categoriasPermitidas = [
+    "restaurante",
+    "hotel",
+    "supermercado",
+    "farmacia",
+    "escola"
+]
+
+//METODO GET
 const getAll = (req, res) => {
     const { estado, cidade, bairro, categoria } = req.query;
-    let data = models.estabelecimentos // aqui dentro de models nos vamos em estabelecimentos
-    
+    let data = models.estabelecimentos
+
     if (estado) {
         data = data.filter(estabelecimento => {
             return estabelecimento.estado == estado
-        })    
+        })
     }
 
     if (cidade) {
@@ -26,188 +80,102 @@ const getAll = (req, res) => {
         data = data.filter(estabelecimento => {
             return estabelecimento.categoria == categoria
         })
-    }    
+    }
 
     return res.status(200).send(data)
 }
 
-const get = (req, res) => {
+const getById = (req, res) => {
     const data = models.estabelecimentos
 
-    const { id } = req.params // é o mesmo que escrever const idRequerido = request.params.id
-    
+    const { id } = req.params
+
     const found = data.find(estabelecimento => {
-        return estabelecimento.id == id //ainda nao estamos usando o utils mas eu ja deixei o arquivo criado caso voce queira usar, lembre de ver a cola no ultimo ex
+        return estabelecimento.id == id
     })
 
     if (found == undefined) {
-        return res.status(404).send({message: 'Estabelecimento não encontrado'})
+        return res.status(404).send({ message: 'Estabelecimento não encontrado' })
     }
 
     return res.status(200).send(found)
 }
 
-const create = (req, res) => {
-    // voce consegue fazer, apenas respire olhe os exemplos!
-    const { 
-         nome, 
-         site = 'sem site', 
-         categoria, 
-         logradouro, 
-         numero, 
-         bairro, 
-         cidade, 
-         estado 
-    } = req.body //estou explodindo as propriedade do json para as constantes
 
+//METODO PUT
+const replace = (req, res) => {
+    const { id } = req.params
+    const found = models.estabelecimentos.find(estabelecimento => {
+        return estabelecimento.id == id
+    })
 
-    if (nome === undefined) { // primeira camada Campos requeridos ou opcionais
+    if (found == undefined) {
+        return res.status(404).send({ message: 'Estabelecimento não encontrado' })
+    }
+
+    const {
+        nome, site = 'sem site', categoria, logradouro, numero, bairro, cidade, estado
+    } = req.body 
+
+    if (nome === undefined) { 
         return res.status(400).send({
             "mensagem": "O campo nome não foi enviado"
         })
     }
 
-    if (typeof nome != "string" || nome.length < 5 || nome.length > 50) { //camada 2 validação do tipo do dado
+    if (typeof nome !== "string" || nome.length < 5 || nome.length > 50) { 
         return res.status(400).send({
             "mensagem": "O nome deve ser uma string com tamanho entre 5 e 50 caracteres"
         })
     }
 
-    if (categoria === undefined) { // primeira camada Campos requeridos ou opcionais
+    if (categoria === undefined) { 
         return res.status(400).send({
             "mensagem": "O campo categoria não foi enviado"
         })
     }
 
-    if (!categoriasPermitidas.includes(categoria)) { //camada 2 validação do tipo do dado
+    if (!categoriasPermitidas.includes(categoria)) { 
         return res.status(400).send({
-            "mensagem": "As categorias permitidas são: restaurante e hotel"
+            "mensagem": "Ainda não aceitamos a sua categoria de estabelecimento como ponto de entrega de doaçõe. Atualmente estamos trabalhando com: restaurante, hotel, supermercado, farmacia, escola"
         })
     }
-    
-    const estabelecimento = {
-        nome, 
-        site, 
-        categoria, 
-        logradouro, 
-        numero, 
-        bairro, 
-        cidade, 
-        estado 
-        
-    }
-    estabelecimento.id = models.novoIdEstabelecimento()
-    models.estabelecimentos.push(estabelecimento)
- 
-     return res.status(201).send(estabelecimento)
+
+    found.nome = nome
+    found.site = site
+    found.categoria = categoria
+    found.logradouro = logradouro
+    found.numero = numero
+    found.bairro = bairro
+    found.cidade = cidade
+    found.estado = estado
+
+    return res.status(200).send(found)
 }
 
-const categoriasPermitidas = [
-    "restaurante",
-    "hotel",
-]
-
-const remove = (req, res) => {
-
-    const data = models.estabelecimentos
-
-    const { id } = req.params
-    
-    const estabelecimento = data.find(estabelecimento => {
-        return estabelecimento.id == id
-    })    
-    
-    if (estabelecimento == undefined) {
-        return res.status(404).send({message: 'Estabelecimento não encontrado'})
-    }    
-
-    const index = data.indexOf(estabelecimento)
-
-    data.splice(index, 1) // o jeito que o js tira nosso amigo do array
-
-    return res.status(204).send({message: 'Estabelecimento deletado'})
-}
-
-const replace = (req, res) => {
-    const { id } = req.params // é o mesmo que escrever const idRequerido = request.params.id
-    
-    const found = models.estabelecimentos.find(estabelecimento => {
-        return estabelecimento.id == id 
-    })
-   
-    if (found == undefined) {
-        return res.status(404).send({message: 'Estabelecimento não encontrado'})
-    }
-
-    const { 
-        nome, 
-        site = 'sem site', 
-        categoria, 
-        logradouro, 
-        numero, 
-        bairro, 
-        cidade, 
-        estado 
-   } = req.body //estou explodindo as propriedade do json para as constantes
-
-   if (nome === undefined) { // primeira camada Campos requeridos ou opcionais
-       return res.status(400).send({
-           "mensagem": "O campo nome não foi enviado"
-       })
-   }
-
-   if (typeof nome !== "string" || nome.length < 5 || nome.length > 50) { //camada 2 validação do tipo do dado
-       return res.status(400).send({
-           "mensagem": "O nome deve ser uma string com tamanho entre 5 e 50 caracteres"
-       })
-   }
-
-   if (categoria === undefined) { // primeira camada Campos requeridos ou opcionais
-       return res.status(400).send({
-           "mensagem": "O campo categoria não foi enviado"
-       })
-   }
-
-   if (!categoriasPermitidas.includes(categoria)) { //camada 2 validação do tipo do dado
-       return res.status(400).send({
-           "mensagem": "As categorias permitidas são: restaurante e hotel"
-       })
-   }
-
-   found.nome = nome
-   found.site = site
-   found.categoria = categoria
-   found.logradouro = logradouro
-   found.numero = numero
-   found.bairro = bairro
-   found.cidade = cidade
-   found.estado = estado
-
-   return res.status(200).send(found)
-}
-
+//METODO PATCH
 const update = (req, res) => {
-    const { id } = req.params // é o mesmo que escrever const idRequerido = request.params.id
-    
+    const { id } = req.params 
+
     const found = models.estabelecimentos.find(estabelecimento => {
-        return estabelecimento.id == id 
+        return estabelecimento.id == id
     })
-   
+
     if (found == undefined) {
-        return res.status(404).send({message: 'Estabelecimento não encontrado'})
+        return res.status(404).send({ message: 'Estabelecimento não encontrado' })
     }
-    
+
     const { nome, site, categoria, logradouro, numero, bairro, cidade, estado } = req.body
-    
-    if (nome != undefined && (typeof nome !== "string" || nome.length < 5 || nome.length > 50)) { //camada 2 validação do tipo do dado
+
+    if (nome != undefined && (typeof nome !== "string" || nome.length < 5 || nome.length > 50)) { 
         return res.status(400).send({
             "mensagem": "O nome deve ser uma string com tamanho entre 5 e 50 caracteres"
         })
     }
 
-    if (categoria != undefined && !categoriasPermitidas.includes(categoria)) { //camada 2 validação do tipo do dado
+    if (categoria != undefined && !categoriasPermitidas.includes(categoria)) {
         return res.status(400).send({
-            "mensagem": "As categorias permitidas são: restaurante e hotel"
+            "mensagem": "Ainda não aceitamos a sua categoria de estabelecimento como ponto de entrega de doaçõe. Atualmente estamos trabalhando com: restaurante, hotel, supermercado, farmacia, escola"
         })
     }
 
@@ -224,31 +192,61 @@ const update = (req, res) => {
 
 }
 
+//CURTIR
 const like = (req, res) => {
-    const { id } = req.params // é o mesmo que escrever const idRequerido = request.params.id
-    
+    const { id } = req.params 
+
     const found = models.estabelecimentos.find(estabelecimento => {
-        return estabelecimento.id == id 
+        return estabelecimento.id == id
     })
-   
+
     if (found == undefined) {
-        return res.status(404).send({message: 'Estabelecimento não encontrado'})
+        return res.status(404).send({ message: 'Estabelecimento não encontrado' })
     }
 
     found.likes += 1
     return res.status(200).send(found)
 
-    
+
+}
+
+//METODO DELETE
+
+const remove = (req, res) => {
+
+    const data = models.estabelecimentos
+
+    const { id } = req.params
+
+    const estabelecimento = data.find(estabelecimento => {
+        return estabelecimento.id == id
+    })
+
+    if (estabelecimento == undefined) {
+        return res.status(404).send({ message: 'Estabelecimento não encontrado' })
+    }
+
+    const index = data.indexOf(estabelecimento)
+
+    data.splice(index, 1)
+
+    fs.writeFile("./src/models/database.js", JSON.stringify(models), 'utf8', function (err) {
+        if (err) {
+            return response.status(424).send({ message: err })
+        }
+    })
+
+    return res.status(204).send({ message: 'Estabelecimento deletado' })
 }
 
 module.exports = {
-    getAll,
-    get,
     create,
-    remove,
+    getAll,
+    getById,
     replace,
     update,
-    like,    
+    remove,
+    like
 }
 
 
