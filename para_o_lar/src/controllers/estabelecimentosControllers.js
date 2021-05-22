@@ -1,42 +1,15 @@
-const models = require('../models/database') // basta voce trocar para json
+const estabelecimentos = require('../models/estabelecimentos.json');
+const models = require('../models/database');
 
 const getAll = (req, res) => {
-    const { estado, cidade, bairro, categoria } = req.query;
-    let data = models.estabelecimentos // aqui dentro de models nos vamos em estabelecimentos
-    
-    if (estado) {
-        data = data.filter(estabelecimento => {
-            return estabelecimento.estado == estado
-        })    
-    }
-
-    if (cidade) {
-        data = data.filter(estabelecimento => {
-            return estabelecimento.cidade == cidade
-        })
-    }
-
-    if (bairro) {
-        data = data.filter(estabelecimento => {
-            return estabelecimento.bairro == bairro
-        })
-    }
-
-    if (categoria) {
-        data = data.filter(estabelecimento => {
-            return estabelecimento.categoria == categoria
-        })
-    }    
-
-    return res.status(200).send(data)
+    return res.status(200).send(models)
 }
 
-const get = (req, res) => {
-    const data = models.estabelecimentos
+const getById = (req, res) => {
 
     const { id } = req.params // é o mesmo que escrever const idRequerido = request.params.id
     
-    const found = data.find(estabelecimento => {
+    const found = estabelecimentos.find(estabelecimento => {
         return estabelecimento.id == id //ainda nao estamos usando o utils mas eu ja deixei o arquivo criado caso voce queira usar, lembre de ver a cola no ultimo ex
     })
 
@@ -79,6 +52,11 @@ const create = (req, res) => {
         })
     }
 
+    const categoriasPermitidas = [
+        "restaurante",
+        "hotel",
+    ]
+
     if (!categoriasPermitidas.includes(categoria)) { //camada 2 validação do tipo do dado
         return res.status(400).send({
             "mensagem": "As categorias permitidas são: restaurante e hotel"
@@ -102,18 +80,12 @@ const create = (req, res) => {
      return res.status(201).send(estabelecimento)
 }
 
-const categoriasPermitidas = [
-    "restaurante",
-    "hotel",
-]
 
 const remove = (req, res) => {
 
-    const data = models.estabelecimentos
-
     const { id } = req.params
     
-    const estabelecimento = data.find(estabelecimento => {
+    const estabelecimento = estabelecimentos.find(estabelecimento => {
         return estabelecimento.id == id
     })    
     
@@ -243,7 +215,7 @@ const like = (req, res) => {
 
 module.exports = {
     getAll,
-    get,
+    getById,
     create,
     remove,
     replace,
