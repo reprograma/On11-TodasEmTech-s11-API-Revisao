@@ -1,4 +1,4 @@
-const models = require('../models/database') // basta voce trocar para json
+const models = require('../models/estabelecimentos.json') // basta voce trocar para json
 
 const getAll = (req, res) => {
     const { estado, cidade, bairro, categoria } = req.query;
