@@ -3,8 +3,8 @@ const dataBase = {
         {
             "likes": 8,
             "id": 1,
-            "nome": "Santa Gula",
-            "site": "http://www.Santagula.com.br",
+            "nome": "Sabor Brasil",
+            "site": "http://www.Saborbrasil.com.br",
             "categoria": "restaurante",
             "logradouro": "Rua Cerqueira",
             "numero": 2,
