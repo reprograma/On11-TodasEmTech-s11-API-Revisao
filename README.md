@@ -1,4 +1,4 @@
-# On11-TodasEmTech-s11-API-Revisao
+//# On11-TodasEmTech-s11-API-Revisao
 Turma Online 11 - Todas em Tech | Back-end | 2021 | Revisão + Exercícios = GET, POST, PUT, DELETE
 
 # Hello!
@@ -109,4 +109,36 @@ Já estamos treinando com nossos exemplos em aula, já já será a vez de você 
 - [instagram](https://www.instagram.com/pontesedlaine)
 - [linkedin](https://www.linkedin.com/in/edlaine-pontes/)
 - [github](https://github.com/edlaine-pontes)
-- email: edlaine@marti.com.br
+//- email: edlaine@marti.com.br
+
+
+
+
+
+
+API para cadastramento da assistências técnicas filiais da eletronica total.
+
+
+POST -
+Cadastrar estabelecimentos
+www.eletronicatotal.com.br
+
+GET -
+Listar assistências técnicas cadastradas
+
+
+PUT -
+Substituir totalmente as informações de estabelecimentos cadastrados
+
+
+PATCH -
+Substituir parcialmente as informações de estabelecimentos cadastrados
+
+
+DELETE -
+Excluir o cadastrado do estabelecimento da base de dados.
+
+
+
+
+
