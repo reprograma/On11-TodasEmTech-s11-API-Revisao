@@ -159,6 +159,7 @@ const dataBase = {
     
         return id
     },
+    
     findEstabelecimento: function(id) {
         let estabelecimento = 0
         dataBase.estabelecimentos.forEach(item => {
