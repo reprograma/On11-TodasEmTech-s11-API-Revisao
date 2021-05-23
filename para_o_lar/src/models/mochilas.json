@@ -1,0 +1,84 @@
+[
+    {
+        "Id": "1",
+        "categoria": "Uber",
+        "cor": [
+            "Verde"
+        ],
+        "tipo": "Desmontável",
+        "material": "Nylon Emborrachado",
+        "tamanho": "45 litros",
+        "envio": "Transportadora",
+        "caixa": "Isopor"
+    },
+    {
+        "Id": "2",
+        "categoria": "Uber",
+        "cor": [
+            "Verde"
+        ],
+        "tipo": "Dobrável",
+        "material": "Nylon Emborrachado",
+        "tamanho": "52 litros",
+        "envio": "Transportadora",
+        "caixa": "Espuma Pac"
+    },
+    {
+        "Id": "3",
+        "categoria": "BagVeloz",
+        "cor": [
+            "Preta",
+            "Verde",
+            "Roxa",
+            "Vermelha",
+            "Amarela",
+            "Camuflada"
+        ],
+        "tipo": "Fixa",
+        "material": "Oxford Emborrachado",
+        "tamanho": "45 litros",
+        "envio": "Transportadora",
+        "caixa": "Isopor"
+    },
+    {
+        "Id": "4",
+        "categoria": "BagVeloz",
+        "cor": [
+            "Preta",
+            "Verde",
+            "Roxa",
+            "Vermelha",
+            "Amarela",
+            "Camuflada"
+        ],
+        "tipo": "Dobrável",
+        "material": "Oxford Emborrachado",
+        "tamanho": "52 litros",
+        "envio": "Transportadora",
+        "caixa": "Espuma Pac"
+    },
+    {
+        "Id": "5",
+        "categoria": "BagVeloz",
+        "cor": [
+            "Roxo"
+        ],
+        "tipo": "Fixa",
+        "material": "oxford Emborrachado",
+        "tamanho": "45 litros",
+        "envio": "Transportadora",
+        "caixa": "Isopor"
+    },
+    {
+        "Id": "6",
+        "categoria": "Uber",
+        "cor": [
+            "Verde"
+        ],
+        "tipo": "Extra Capacidade",
+        "material": "`Polyester 1600",
+        "tamanho": "65 litros",
+        "envio": "Transportadora",
+        "caixa": "Espuma pac"
+    }
+]

@@ -1,4 +1,4 @@
-const controller = require('../controllers/estabelecimentosControllers')
+const controller = require('../controllers/mochilasControllers')
 
 const express = require('express')
 
