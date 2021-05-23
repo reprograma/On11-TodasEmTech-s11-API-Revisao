@@ -12,4 +12,7 @@ app.use(cors())
 
 app.use('/estabelecimentos', estabelecimentos)
 
+
+module.exports = app
+=======
 module.exports = app
