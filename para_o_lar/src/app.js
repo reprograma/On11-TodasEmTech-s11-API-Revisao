@@ -2,8 +2,7 @@ const express = require('express')
 
 const cors = require('cors')
 
-const estabelecimentos = require('./routes/estabelecimentosRoutes')
-
+const franquias = require('./routes/franquiasLojasRouter')
 
 const app = express()
 
@@ -11,6 +10,6 @@ app.use(express.json()) // o que vem da requisição é texto livre e estou conv
 
 app.use(cors())
 
-app.use('/estabelecimentos', estabelecimentos)
+app.use('/franquias', franquias)
 
 module.exports = app

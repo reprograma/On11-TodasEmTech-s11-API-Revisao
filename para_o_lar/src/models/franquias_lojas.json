@@ -1,0 +1,32 @@
+[
+    {
+        "id": "1",
+        "franchisee": "João",
+        "site": "http://www.loja1.com.br",
+        "like": 50,
+        "address": "rua - bairro",
+        "cep": "5639000",
+        "city": "Petrolina",
+        "state": "Pernambuco",
+        "region": "Nordeste",
+        "cnpj": "55.787.000/0001-99",
+        "email": "email@email.com",
+        "phone": "(81)11111111",
+        "tax": "3000"
+    },
+    {     
+        "id": "2",
+        "franchisee": "Bruna",
+        "site": "http://www.loja2.com.br",
+        "like": 23,
+        "address": "rua - bairro",
+        "cep": "1212456",
+        "city": "Recife",
+        "state": "Pernambuco",
+        "region": "Nordeste",
+        "cnpj": "55.787.000/0001-99",
+        "email": "email@email.com",
+        "phone": "(81)11111111",
+        "tax": "4000"
+    }
+]
