@@ -1,0 +1,19 @@
+Bem vinda, a API "FindMyTH" ela ajuda você a procurar nas farmacias os "hormonios" que você procura para sua terapia hormonal.
+
+Porta 8080
+
+/drugstores
+
+[GET] "/" Retorna todas as farmácias catalogadas.
+[GET] "/:id" Retorna por Id.
+[POST] "/add" Adiciona a farmácias seguindo o modelo:
+{
+        "name": "",
+        "address":"",
+        "city": "",
+        "district" : "",
+        "hormonesAvailable": ""
+}
+[DELETE] "/:id" Deleta um farmácia pelo id.
+[PUT] "/:id" Reforma totalmente os dados da farmácia.
+[PATCH] "/:id" Atualiza dados da farmácia por id. 

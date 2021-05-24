@@ -1,0 +1,18 @@
+[
+    {
+        "id": "s8m5mbgg0",
+        "name": "Drogaria São Paulo",
+        "address": "Av.Sapopemba, 325",
+        "city": "São Paulo",
+        "district": "Sapopemba",
+        "hormonesAvailable": "Evra, Qlaira, Climene, Ciclovular, Perlutan"
+    },
+    {
+        "id": "qq7uvs924",
+        "name": "Drogasil",
+        "address": "Av.Sapopemba, 558",
+        "city": "São Paulo",
+        "district": "Sapopemba",
+        "hormonesAvailable": "Evra, Qlaira, Climene, Ciclovular, Perlutan"
+    }
+]
