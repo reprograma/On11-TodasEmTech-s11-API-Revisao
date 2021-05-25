@@ -99,6 +99,29 @@ Vamos ajudar o nosso comércio local criando uma rede social para os estabelecim
 
 ![assets/proposta.jpg](assets/proposta.jpg)
 
+API de cadastramento de estabelecimentos comerciais que recebem doações de alimentos para o refeitório social local:
+
+
+POST -
+Cadastrar estabelecimentos
+www.semfome.com.br/cadastro
+
+GET -
+Listar os estabelecimentos cadastrados
+
+
+PUT -
+Substituir totalmente as informações de estabelecimentos cadastrados
+
+
+PATCH -
+Substituir parcialmente as informações de estabelecimentos cadastrados
+
+
+DELETE -
+Excluir o cadastrado do estabelecimento da base de dados.
+
+
 ---
 **Desafio:**
 #### Calma! É só mais uma oportunidade de continuar aprendendo e lembre-se a Edi esta aqui para ajudar!
