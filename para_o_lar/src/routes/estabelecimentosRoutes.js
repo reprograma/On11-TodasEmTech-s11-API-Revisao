@@ -13,5 +13,4 @@ router.patch('/:id', controller.update)
 
 router.post('/:id/like', controller.like)
 
-
 module.exports = router
