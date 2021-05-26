@@ -237,8 +237,21 @@ const like = (req, res) => {
 
     found.likes += 1
     return res.status(200).send(found)
+}
 
-    
+const deslike = (req, res) => {
+  const { id } = req.params 
+  
+  const found = models.estabelecimentos.find(estabelecimento => {
+      return estabelecimento.id == id 
+  })
+ 
+  if (found == undefined) {
+      return res.status(404).send({message: 'Estabelecimento não encontrado'})
+  }
+
+  found.likes -= 1
+  return res.status(200).send(found)
 }
 
 module.exports = {
@@ -249,6 +262,7 @@ module.exports = {
     replace,
     update,
     like,    
+    deslike
 }
 
 
