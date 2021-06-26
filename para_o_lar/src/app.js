@@ -1,16 +1,14 @@
-const express = require('express')
+const express = require('express');
+const cors = require('cors');
+const app = express();
 
-const cors = require('cors')
+app.use(express.json());
+app.use(cors());
 
-const estabelecimentos = require('./routes/estabelecimentosRoutes')
+const index = require('./routes/index');
+const cinemas = require('./routes/cinemasRoutes');
 
+app.use('/', index);
+app.use('/cinemas', cinemas);
 
-const app = express()
-
-app.use(express.json()) // o que vem da requisição é texto livre e estou convertendo no json
-
-app.use(cors())
-
-app.use('/estabelecimentos', estabelecimentos)
-
-module.exports = app
+module.exports = app;

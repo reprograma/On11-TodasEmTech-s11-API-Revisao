@@ -1,112 +1,313 @@
-# On11-TodasEmTech-s11-API-Revisao
-Turma Online 11 - Todas em Tech | Back-end | 2021 | Revisão + Exercícios = GET, POST, PUT, DELETE
+# Brazil Kino API
+Essa aplicação foi desenvolvida para catalogar cinemas e festivais acessíveis, com preço popular ou gratuito no território brasileiro.
 
-# Hello!
+## Exemplos de Request e Response
 
-Como você está lidando com esse processo de transição? 
+### Recursos
 
-Aprender a aprender pode ser muito doloroso, mas eu te garanto uma coisa: é libertador! Chegamos na décima semana! E vocês estão voandooo!  🚀
+  - [GET /](#get)
+  - [GET /cinemas](#get-cinemas)
+  - [GET /cinemas/{id}](#get-cinemasid)
+  - [GET /cinemas/?estado={estado}](#get-cinemasestadoestado)
+  - [GET /cinemas/?estado={estado}&cidade={cidade}](#get-cinemasestadoestadocidadecidade)
+  - [GET /cinemas/?estado={estado}&cidade={cidade}&bairro={bairro}](#get-cinemasestadoestadocidadecidadebairrobairro)
+  - [POST /cinemas/cadastrar](#post-cinemascadastrar)
+  - [PUT /cinemas/substituir/{id}](#put-cinemassubstituirid)
+  - [PATCH /cinemas/atualizar/{id}](#patch-cinemasatualizarid)
+  - [PATCH /cinemas/like/{id}](#patch-cinemaslikeid)
+  - [PATCH /cinemas/dislike/{id}](#patch-cinemasdislikeid)
+  - [DELETE /cinemas/deletar/{id}](#delete-cinemasdeletarid)
 
-* Vamos começar com um momento só nosso ❤️
-* Depois vamos revisar alguns dos conceitos estudados nas últimas semanas
-* E de quebra teremos bastante treino!
+### GET /
+Responde a apresentação:
 
----
+    'title': 'Brazil Kino API',
+    'version': '1.0.0',
+    'message': 'Boas-vindas!'
 
-## Revisão
+### GET /cinemas
+Lista todos os cinemas cadastrado, respondendo:
 
-Essa revisão vai te ajudar a relembrar conceitos e modelos para estabelecer o seu mapa mental de aprendizado! 😃
+    {
+      "likes": 12,
+      "id": 1,
+      "nome": "Cine Passeio",
+      "site": "http://www.cinepasseio.org",
+      "logradouro": "Rua Riachuelo",
+      "numero": "410",
+      "bairro": "Centro",
+      "cidade": "Curitiba",
+      "estado": "PR"
+    },
+    {
+      "likes": 8,
+      "id": 2,
+      "nome": "CineSesc",
+      "site": "https://www.sescsp.org.br/unidades/2_CINESESC/",
+      "logradouro": "Rua Augusta",
+      "numero": "2075",
+      "bairro": "Cerqueira César",
+      "cidade": "São Paulo",
+      "estado": "SP"
+    },
+    {
+      "likes": 8,
+      "id": 3,
+      "nome": "Espaço Itaú de Cinema - Frei Caneca",
+      "site": "https://www.sescsp.org.br/unidades/2_CINESESC/",
+      "logradouro": "Rua Frei Caneca",
+      "numero": "569",
+      "bairro": "Consolação",
+      "cidade": "São Paulo",
+      "estado": "SP"
+    },
+    {
+      "likes": 10,
+      "id": 4,
+      "nome": "Espaço Itaú de Cinema - Salvador",
+      "site": "https://www.itaucinemas.com.br/pag/salvador-glauber-rocha",
+      "logradouro": "Praça Castro Alves",
+      "numero": "s/n",
+      "bairro": "Centro",
+      "cidade": "Salvador",
+      "estado": "BA"
+    }
 
-### Node.js
+### GET /cinemas/{id}
+Busca cinema por id.
 
-É um interpretador Javascript que não depende do navegador. 
-
-Ele é formado pelo V8, motor interpretador de Javascript criado pelo Google, e pela libuv, uma biblioteca que deu características de linguagem back-end para o node.
-
-Node.js revolucionou a forma de programar em Javascript, pois a linguagem evoluiu de uma forma de dar vida aos elementos no navegador para uma linguagem capaz de rodar sistemas em computadores/servidores.
-
-### HTTP
-
-É o protocolo de transferência de hipertexto. 
-
-O principal protocolo de comunicação entre computadores utilzados na internet.
-
-Ele cria as regras para enviar e receber informações na internet.
-
-Ele é responsável pelo o que acontece por debaixo dos panos quando usamos a internet.
-
-#### Verbos ou métodos
-
-Para além de GET e POST, temos também no nosso leque de principais métodos o PUT, DELETE e PATCH.
-
-É simples de entender:
-
-* GET: para consultas
-* POST: para criação de informações
-* DELETE: para remoção de informações
-* PUT: Alteração de informações
-* PATCH: para atualização de informações
-
-
-### API
-
-Interface entre aplicativos e programação.
-
-Se uma interface de um sistema é criado para o usuário final, a API é desenvolvida para que um sistema possa usar as funcionalidades de outro sistema.
-
-Interface ideal para que um sistema se comunique com outro sistema.
-
-### REST e RESTful
-
-Rest é uma abstração(forma de usar as regras) do protocolo HTTP para simplificar a construção de um web service, ou seja quem cria uma API com as restrições e regras do modelo Rest está criando na verdade API Restful.
-
-O grande objetivo desse modelo é fazer com que os recursos estejam disponíveis através de URLs.
-
-#### Algumas das regras: 
-
-* Adotar convenção de URLs
-* Basear em recursos
-* Usar os verbos HTTP para indicar ações
-* Ser stateless, ou seja, toda requisição é autossuficiente/independente
-
-### MVC
-
-
-#### Server.js
-> Aqui no server que você vai chamar o app para escutar a porta e disponibilizar toda a aplicação a partir do localhost
-
-#### App.js
-> Aqui no app que você vai usar a rota raiz 
-
-#### 📂Routes
->  Aqui nas rotas você vai usar os verbos para  executar os controllers 
-
-#### 📂Controller
-> Aqui no controller você vai acessar os dados do seu model a partir das requisições e enviar respostas
-
-#### 📂Model
-> Por enquanto estamos apenas guardando nosso JSON aqui, mas no futuro será o lugar onde você irá modelar os esquemas de dados para o banco. Não fique ansiosa! Acredite no processo, ele funciona!
+Pedido:
 
 
+    GET /cinemas/1
 
+Resposta:
 
----
+    {
+      "likes": 12,
+      "id": 1,
+      "nome": "Cine Passeio",
+      "site": "http://www.cinepasseio.org",
+      "logradouro": "Rua Riachuelo",
+      "numero": "410",
+      "bairro": "Centro",
+      "cidade": "Curitiba",
+      "estado": "pr"
+    }  
 
-## Tarefinhas
+### GET /cinemas/?estado={estado}
+Lista todos os cinemas por estado.
 
-Vamos ajudar o nosso comércio local criando uma rede social para os estabelecimentos, vamos separa-los por categorias e bairros:
-**Proposta:**
+Pedido:
 
-![assets/proposta.jpg](assets/proposta.jpg)
+    GET /cinemas/?estado=sp
 
----
-**Desafio:**
-#### Calma! É só mais uma oportunidade de continuar aprendendo e lembre-se a Edi esta aqui para ajudar!
+Resposta:
 
-Já estamos treinando com nossos exemplos em aula, já já será a vez de você brilhar no mundo e chamar as migas tudo no grupo pra estudar juntas! haha
+    {
+      "likes": 8,
+      "id": 2,
+      "nome": "CineSesc",
+      "site": "https://www.sescsp.org.br/unidades/2_CINESESC/",
+      "logradouro": "Rua Augusta",
+      "numero": "2075",
+      "bairro": "Cerqueira César",
+      "cidade": "São Paulo",
+      "estado": "SP"
+    },
+    {
+      "likes": 8,
+      "id": 3,
+      "nome": "Espaço Itaú de Cinema - Frei Caneca",
+      "site": "https://www.sescsp.org.br/unidades/2_CINESESC/",
+      "logradouro": "Rua Frei Caneca",
+      "numero": "569",
+      "bairro": "Consolação",
+      "cidade": "São Paulo",
+      "estado": "SP"
+    }
 
-## Edlaine (Só a minha mãe me chama assim, para vcs eu sou a EDI)
-- [instagram](https://www.instagram.com/pontesedlaine)
-- [linkedin](https://www.linkedin.com/in/edlaine-pontes/)
-- [github](https://github.com/edlaine-pontes)
-- email: edlaine@marti.com.br
+### GET /cinemas/?estado={estado}&cidade={cidade}
+Lista todos os cinemas por cidade.
+
+Pedido:
+
+    GET /cinemas/?estado=sp&cidade=são paulo
+
+Resposta:
+
+    {
+      "likes": 10,
+      "id": 4,
+      "nome": "Espaço Itaú de Cinema - Salvador",
+      "site": "https://www.itaucinemas.com.br/pag/salvador-glauber-rocha",
+      "logradouro": "Praça Castro Alves",
+      "numero": "s/n",
+      "bairro": "Centro",
+      "cidade": "Salvador",
+      "estado": "BA"
+    }
+
+### GET /cinemas/?estado={estado}&cidade={cidade}&bairro={bairro}
+Lista todos os cinemas por bairro.
+
+Pedido:
+
+    GET /cinemas/?estado=sp&cidade=são paulo&bairro=consolação
+
+Resposta:
+    
+    {
+      "likes": 8,
+      "id": 2,
+      "nome": "Espaço Itaú de Cinema - Frei Caneca",
+      "site": "https://www.sescsp.org.br/unidades/2_CINESESC/",
+      "logradouro": "Rua Frei Caneca",
+      "numero": "569",
+      "bairro": "Consolação",
+      "cidade": "São Paulo",
+      "estado": "SP"
+    }
+
+### POST /cinemas/cadastrar
+Cadastra um cinema.
+
+Pedido:
+
+    POST /cinemas/cadastrar
+
+    {
+      "nome": "Cinema sem nome",
+      "site": "n/a",
+      "logradouro": "n/a",
+      "numero": "n/a",
+      "bairro": "n/a",
+      "cidade": "n/a",
+      "estado": "n/a"
+    }
+
+Resposta:
+
+    {
+      "likes": 0,
+      "id": 5,
+      "nome": "Cinema sem nome",
+      "site": "n/a",
+      "logradouro": "n/a",
+      "numero": "n/a",
+      "bairro": "n/a",
+      "cidade": "n/a",
+      "estado": "n/a"
+    }
+
+### PUT /cinemas/substituir/{id}
+Altera o cadastro de um cinema.
+
+Pedido:
+    
+    PUT /cinemas/substituir/2
+
+    {
+      "nome": "Cinema sem nome",
+      "site": "n/a",
+      "logradouro": "n/a",
+      "numero": "n/a",
+      "bairro": "n/a",
+      "cidade": "n/a",
+      "estado": "n/a"
+    }
+
+Resposta:
+
+    {
+      "likes": 8,
+      "id": 2,
+      "nome": "Cinema sem nome",
+      "site": "n/a",
+      "logradouro": "n/a",
+      "numero": "n/a",
+      "bairro": "n/a",
+      "cidade": "n/a",
+      "estado": "n/a"
+    }
+
+### PATCH /cinemas/atualizar/{id}
+Atualiza o endereço de cinema cadastrado.
+
+Pedido:
+    
+    PATCH /cinemas/atualizar/2
+
+    {
+      "nome": "Cinema sem nome",
+      "site": "n/a"
+    }
+
+Resposta:
+
+    {
+      "likes": 8,
+      "id": 2,
+      "nome": "Cinema sem nome",
+      "site": "n/a",
+      "logradouro": "Rua Augusta",
+      "numero": "2075",
+      "bairro": "Cerqueira César",
+      "cidade": "São Paulo",
+      "estado": "SP"
+    }
+
+### PATCH /cinemas/like/{id}
+Adiciona like em um cinema.
+
+Pedido:
+    
+    PATCH /cinemas/like/1
+
+Resposta:
+
+    {
+      "likes": 13,
+      "id": 1,
+      "nome": "Cine Passeio",
+      "site": "http://www.cinepasseio.org",
+      "logradouro": "Rua Riachuelo",
+      "numero": "410",
+      "bairro": "Centro",
+      "cidade": "Curitiba",
+      "estado": "PR"
+    }
+
+### PATCH /cinemas/dislike/{id}
+Adiciona dislike em um cinema.
+
+Pedido:
+    
+    PATCH /cinemas/like/1
+
+Resposta:
+
+    {
+      "likes": 11,
+      "id": 1,
+      "nome": "Cine Passeio",
+      "site": "http://www.cinepasseio.org",
+      "logradouro": "Rua Riachuelo",
+      "numero": "410",
+      "bairro": "Centro",
+      "cidade": "Curitiba",
+      "estado": "PR"
+    }
+
+### DELETE /cinemas/deletar/{id}
+Deleta um cinema.
+
+Pedido:
+    
+    DELETE /cinemas/deletar/4
+
+Resposta:
+
+    {
+      "Mensagem": "Cinema Espaço Itaú de Cinema - Salvador deletado."
+    }
