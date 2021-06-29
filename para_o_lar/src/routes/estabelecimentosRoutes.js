@@ -12,6 +12,6 @@ router.put('/:id', controller.replace)
 router.patch('/:id', controller.update)
 
 router.post('/:id/like', controller.like)
-
+router.post('/:id/deslike', controller.deslike)
 
 module.exports = router
