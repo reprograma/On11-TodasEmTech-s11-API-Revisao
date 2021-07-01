@@ -1,0 +1,29 @@
+[
+    {
+        "id":"1",
+        "dataCriacao": "22/08/2021",
+        "localNome": "Curitiba",
+        "endereco": "rua Semnome, S/n",
+        "bairro": "Centro Civico",
+        "telefone": "(41)99985683",
+        "celular": "(41)99225-3654"  
+    },
+    {
+        "id":"2",
+        "dataCriacao": "22/04/2021",
+        "localNome": "Rio de Janeiro",
+        "endereco": "rua Taunay, S/N ",
+        "bairro": "Barra Da Tijuca",
+        "telefone": "(41)3336-8550",
+        "celular": "(41)99523-2751"   
+    },
+    {
+        "id":"3",
+        "dataCriacao": "12/05/2021",
+        "localNome": "Floripa",
+        "endereco": "rua da flor, nº 54 ",
+        "bairro": "Paineiras",
+        "telefone": "(41)3356-2386",
+        "celular": "(41)99186-7527"
+    }
+] 
