@@ -1,14 +1,17 @@
 const express = require("express")
 
-const cors = require("cors")
-
-const estabelecimento = require("./routes/estabelecimentosRoutes")
-
 const app = express()
+
+const cors = require("cors")
 
 app.use(cors())
 
-app.use("/estabelecimentos", estabelecimentos)
+app.use(express.json())
+
+const estabelecimento = require("./routes/estabelecimentosRoutes")
+
+app.use("/estabelecimentos",estabelecimento)
+
 
 
 
